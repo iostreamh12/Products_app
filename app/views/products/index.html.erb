@@ -1,0 +1,43 @@
+<h1>Productos <small>Administración</small></h1>
+<p><%= link_to "Regresar", inside_path %></p>
+
+<div class="text-center">
+  <p><%= page_entries_info @product %></p>
+  <%= paginate @product %>
+</div>
+
+<%= form_tag index_path, method: 'get', html: {role: "form"} do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Buscar", :name => nil, class: "btn btn-sm btn-primary" %>
+    <%= link_to "Todos", index_path, {class: "btn btn-sm btn-link"} %>
+  </p>
+<% end %>
+
+<a type="button" class="btn btn-warning" href="product">Nuevo Producto</a>
+
+<table class="table table-striped">
+  <tr>
+    <th>Producto ID</th>
+    <th>Clave</th>
+    <th>Descripción</th>
+    <th>Precio Venta</th>
+  </tr>
+  
+  <% @product.each do |product| %>
+  
+  <tr>
+    <td><%= product.id %></td>
+    <td><%= product.clave %></td>
+    <td><%= link_to product.descripcion.capitalize, "#" %></td>
+    <td><%= product.precioventa %></td>
+  </tr>
+  
+  <% end %>
+  
+</table>
+
+<div class="text-center">
+  <p><%= page_entries_info @product %></p>
+  <%= paginate @product %>
+</div>

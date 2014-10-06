@@ -1,0 +1,27 @@
+<h1>Nuevo Producto</h1>
+<p>Crear nuevo producto</p>
+
+<div class="row">
+  <div class="col-sm-6">
+    <%= form_for(@product) do |f| %>
+
+      <%= f.label :clave, "Clave de producto" %>
+      <%= f.text_field :clave %>
+
+      <%= f.label :descripcion, "Descripción" %>
+      <%= f.text_field :descripcion %>
+
+      <%= f.label :tipoventa, "Tipo de Venta" %>
+      <%= f.text_field :tipoventa %>
+
+      <%= f.label :preciocompra, "Precio de compra" %>
+      <%= f.text_field :preciocompra %>
+
+      <%= f.label :precioventa, "Precio de venta" %>
+      <%= f.text_field :precioventa %>
+
+      <%= f.submit "Guardar Producto", class: "btn btn-large btn-primary" %> -<%= link_to "Cancelar", index_path %>
+    <% end %>
+  </div>
+</div>
+
